@@ -5,6 +5,7 @@ import {
   Card,
   CardBody,
   CardFooter,
+  Center,
   Divider,
   HStack,
   Heading,
@@ -16,10 +17,11 @@ import {
 
 const SpecialCard = ({ title, description, price, imageSrc }) => {
   return (
-    <Card maxW="sm" backgroundColor="#edefee">
+    <Card maxW="sm" maxH="m" backgroundColor="#edefee">
       <CardBody>
         <Image src={imageSrc} alt={title} borderRadius="lg" />
-        <Stack mt="6" spacing="3">
+
+        <Stack mt="2" spacing="1">
           <HStack justifyContent="space-between">
             <Heading size="md">{title}</Heading>
             <Text color="#ee9972">${price}</Text>
@@ -29,11 +31,9 @@ const SpecialCard = ({ title, description, price, imageSrc }) => {
         </Stack>
       </CardBody>
       <CardFooter>
-        <ButtonGroup spacing="2">
-          <Button variant="solid" colorScheme="yellow">
-            Order a delivery
-          </Button>
-        </ButtonGroup>
+        <Button variant="solid" colorScheme="yellow">
+          Order a delivery
+        </Button>
       </CardFooter>
     </Card>
   );

@@ -1,4 +1,12 @@
-import { Box, Center, Button, HStack, VStack, Spacer } from "@chakra-ui/react";
+import {
+  Box,
+  Center,
+  Button,
+  Spacer,
+  Flex,
+  Grid,
+  GridItem,
+} from "@chakra-ui/react";
 import SpecialCard from "./SpecialCard";
 
 const Specials = () => {
@@ -32,30 +40,28 @@ const Specials = () => {
       <br />
 
       <Center p={4}>
-        <VStack>
-          <HStack>
-            <Box>
-              <h2>This weeks specials!</h2>
-            </Box>
-            <Spacer />
-            <Box>
-              <Button colorScheme="yellow">Online Menu</Button>
-            </Box>
-          </HStack>
-          <HStack>
-            {specials.map((special) => (
+        <Grid templateColumns="repeat(3,minmax(0,1fr))" gridGap={3}>
+          <GridItem colSpan={3}>
+            <Flex justifyContent="space-between" maxH="100">
               <Box>
-                <SpecialCard
-                  key={special.title}
-                  title={special.title}
-                  description={special.description}
-                  price={special.price}
-                  imageSrc={special.getImageSrc()}
-                />
+                <h2>This weeks specials!</h2>
               </Box>
-            ))}
-          </HStack>
-        </VStack>
+              <Spacer />
+              <Box>
+                <Button colorScheme="yellow">Online Menu</Button>
+              </Box>
+            </Flex>
+          </GridItem>
+          {specials.map((special) => (
+            <SpecialCard
+              key={special.title}
+              title={special.title}
+              description={special.description}
+              price={special.price}
+              imageSrc={special.getImageSrc()}
+            />
+          ))}
+        </Grid>
       </Center>
     </>
   );
