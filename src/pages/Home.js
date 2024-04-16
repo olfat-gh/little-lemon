@@ -1,5 +1,11 @@
+import Specials from "../components/Specials";
+
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <>
+      <Specials />
+    </>
+  );
 };
 
 export default Home;
